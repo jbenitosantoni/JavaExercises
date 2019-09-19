@@ -11,7 +11,7 @@ public class Ex3 {
 		System.out.println("Altura triángulo");
 		double altura = sc.nextDouble();
 		double area = (base * altura) / 2;
-		System.out.println("El area del trángulo es: " + area + "u2");
+		System.out.println("El area del trángulo es: " + area + " unidades cuadradas");
 	}
 
 }

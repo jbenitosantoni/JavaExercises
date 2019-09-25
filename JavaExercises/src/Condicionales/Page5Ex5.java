@@ -20,5 +20,4 @@ public class Page5Ex5 {
 		}
 		sc.close();
 	}
-
 }

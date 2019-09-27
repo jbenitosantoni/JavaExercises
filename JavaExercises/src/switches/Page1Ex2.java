@@ -16,18 +16,18 @@ public class Page1Ex2 {
 			double lado = sc.nextDouble();
 			System.out.print("El área es: " + lado * lado);
 		} else if (intro == 2) {
-			System.out.print("Introduce base y altura");
+			System.out.println("Introduce base y altura");
 			double base = sc.nextDouble();
 			double altura = sc.nextDouble();
-			System.out.print("El area es: " + (base * altura) / 2);
+			System.out.println("El area es: " + (base * altura) / 2);
 		} else if (intro == 3) {
-			System.out.print("Introduce radio");
+			System.out.println("Introduce radio");
 			double radio = sc.nextDouble();
-			System.out.print("El área es: " + Math.PI * Math.pow(radio, 2));
+			System.out.println("El área es: " + Math.PI * Math.pow(radio, 2));
 		} else if (intro == 4) {
-			System.out.print("Saliendo...");
+			System.out.println("Saliendo...");
 		} else {
-			System.out.print("Introduce un número del 1-4");
+			System.out.println("Introduce un número del 1-4");
 		}
 		sc.close();
 	}

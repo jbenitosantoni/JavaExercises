@@ -15,21 +15,21 @@ public class Page1Ex1 {
 		case 1:
 			System.out.println("Introduce lado");
 			double lado = sc.nextDouble();
-			System.out.print("El área es: " + lado * lado);
+			System.out.println("El área es: " + lado * lado);
 			break;
 		case 2:
-			System.out.print("Introduce base y altura");
+			System.out.println("Introduce base y altura");
 			double base = sc.nextDouble();
 			double altura = sc.nextDouble();
-			System.out.print("El area es: " + (base * altura) / 2);
+			System.out.println("El area es: " + (base * altura) / 2);
 			break;
 		case 3:
-			System.out.print("Introduce radio");
+			System.out.println("Introduce radio");
 			double radio = sc.nextDouble();
-			System.out.print("El área es: " + Math.PI * Math.pow(radio, 2));
+			System.out.println("El área es: " + Math.PI * Math.pow(radio, 2));
 			break;
 		case 4:
-			System.out.print("Saliendo...");
+			System.out.println("Saliendo...");
 			break;
 		}
 		sc.close();

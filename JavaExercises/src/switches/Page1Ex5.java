@@ -11,9 +11,9 @@ public class Page1Ex5 {
 		System.out.print("Cantidad de ruedas");
 		int ruedas = sc.nextInt();
 		if (ruedas < 12) {
-			System.out.print("El precio es de: " + 250 * ruedas);
+			System.out.print("El precio es de: " + 250 * 0.8 * ruedas);
 		} else if (ruedas >= 12) {
-			System.out.print("El precio es de: " + 220 * ruedas);
+			System.out.print("El precio es de: " + 220 * 0.75 * ruedas);
 		}
 		sc.close();
 	}

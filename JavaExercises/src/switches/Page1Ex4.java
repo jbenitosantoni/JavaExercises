@@ -12,8 +12,9 @@ public class Page1Ex4 {
 		if (horas > 40) {
 			tarifa = tarifa * 1.4;
 			System.out.print("El sueldo sería de: " + tarifa * horas);
+		} else {
+			System.out.print("El sueldo sería de: " + tarifa * horas);
 		}
-		System.out.print("El sueldo sería de: " + tarifa * horas);
 		sc.close();
 	}
 

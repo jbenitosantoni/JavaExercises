@@ -15,13 +15,13 @@ public class Page1Ex1 {
 		case 1:
 			System.out.println("Introduce lado");
 			double lado = sc.nextDouble();
-			System.out.print("El área es: " + lado);
+			System.out.print("El área es: " + lado * lado);
 			break;
 		case 2:
 			System.out.print("Introduce base y altura");
 			double base = sc.nextDouble();
 			double altura = sc.nextDouble();
-			System.out.print("El área del triángulo es:" + base * altura);
+			System.out.print("El area es: " + (base * altura) / 2);
 			break;
 		case 3:
 			System.out.print("Introduce radio");

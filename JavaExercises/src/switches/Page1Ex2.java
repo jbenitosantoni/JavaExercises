@@ -14,11 +14,12 @@ public class Page1Ex2 {
 		if (intro == 1) {
 			System.out.println("Introduce lado");
 			double lado = sc.nextDouble();
-			System.out.print("El área es: " + lado);
+			System.out.print("El área es: " + lado * lado);
 		} else if (intro == 2) {
 			System.out.print("Introduce base y altura");
 			double base = sc.nextDouble();
 			double altura = sc.nextDouble();
+			System.out.print("El area es: " + (base * altura) / 2);
 		} else if (intro == 3) {
 			System.out.print("Introduce radio");
 			double radio = sc.nextDouble();
@@ -28,7 +29,7 @@ public class Page1Ex2 {
 		} else {
 			System.out.print("Introduce un número del 1-4");
 		}
-
+		sc.close();
 	}
 
 }

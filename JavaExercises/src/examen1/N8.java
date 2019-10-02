@@ -12,27 +12,27 @@ public class N8 {
 		int thiem = sc.nextInt();
 		if (nadal < 6 && thiem < 6) {
 			System.out.println("En juego");
-		} if (nadal == 6 && thiem <= 4) {
+		} else if (nadal == 6 && thiem <= 4) {
 			System.out.print("Gana nadal");
-		} if (thiem == 6 && nadal <=4) {
+		} else if (thiem == 6 && nadal <= 4) {
 			System.out.print("Gana Thiem");
-		}if (thiem == 5 && nadal == 5) {
+		} else if (thiem == 5 && nadal == 5) {
 			System.out.print("Desempate a 7");
-		} if (thiem == 7 && nadal == 5) {
+		} else if (thiem == 7 && nadal == 5) {
 			System.out.print("Gana Thiem");
-		} if (thiem == 7 && nadal == 6) {
+		} else if (thiem == 7 && nadal == 6) {
 			System.out.print("Gana Thiem");
-		} if (nadal == 7 && thiem == 5) {
+		} else if (nadal == 7 && thiem == 5) {
 			System.out.print("Gana Nadal");
-		} if (nadal == 7 && thiem == 6) {
+		} else if (nadal == 7 && thiem == 6) {
 			System.out.print("Gana Nadal");
-		} if (nadal == 6 && thiem == 6) {
+		} else if (nadal == 6 && thiem == 6) {
 			System.out.print("Desempate en el próximo juego.");
-		} if (nadal == 5 && thiem == 6) {
+		} else if (nadal == 5 && thiem == 6) {
 			System.out.print("En juego");
-		} if (thiem == 5 && nadal == 6) {
+		} else if (thiem == 5 && nadal == 6) {
 			System.out.print("En juego");
-		} if (nadal > 7 || thiem > 7) {
+		} else if (nadal > 7 || thiem > 7) {
 			System.out.print("Inválido");
 		}
 		sc.close();

@@ -36,22 +36,30 @@ public class Day1Ex3 {
 		int valor = sc.nextInt();
 		switch (valor) {
 		case 1:
-			System.out.println(nombre + ": Programacion: " + notaprogramacion + "Sistemas: "+ notaprosistemas + "BDD: " + notabdd);
+			System.out.println(nombre + ": Programacion: " + notaprogramacion + "Sistemas: " + notaprosistemas + "BDD: "
+					+ notabdd);
 			break;
 		case 2:
-			System.out.println(nombre2 + ": Programacion: " + notaprogramacion2 + "Sistemas: "+ notaprosistemas2 + "BDD: " + notabdd2);
+			System.out.println(nombre2 + ": Programacion: " + notaprogramacion2 + "Sistemas: " + notaprosistemas2
+					+ "BDD: " + notabdd2);
 			break;
 		case 3:
-			System.out.println(nombre3 + ": Programacion: " + notaprogramacion3 + "Sistemas: "+ notaprosistemas3 + "BDD: " + notabdd3);
+			System.out.println(nombre3 + ": Programacion: " + notaprogramacion3 + "Sistemas: " + notaprosistemas3
+					+ "BDD: " + notabdd3);
 			break;
 		case 4:
-			System.out.println((notaprogramacion + notaprosistemas + notabdd + notaprogramacion2 + notaprosistemas2 + notabdd2 + notaprogramacion3 + notaprosistemas3 + notabdd3 + notaprogramacion4 + notaprosistemas4 + notabdd4 + notaprogramacion5 + notaprosistemas5 + notabdd5) / 15);
+			System.out.println((notaprogramacion + notaprosistemas + notabdd + notaprogramacion2 + notaprosistemas2
+					+ notabdd2 + notaprogramacion3 + notaprosistemas3 + notabdd3 + notaprogramacion4 + notaprosistemas4
+					+ notabdd4 + notaprogramacion5 + notaprosistemas5 + notabdd5) / 15);
 			break;
 		case 5:
-			System.out.println((notaprogramacion + notaprogramacion2 + notaprogramacion3 + notaprogramacion4 + notaprogramacion5) / 5);
+			System.out.println(
+					(notaprogramacion + notaprogramacion2 + notaprogramacion3 + notaprogramacion4 + notaprogramacion5)
+							/ 5);
 			break;
 		case 6:
-			System.out.println((notaprosistemas + notaprosistemas2 + notaprosistemas3 + notaprosistemas4 + notaprosistemas5) / 5);
+			System.out.println(
+					(notaprosistemas + notaprosistemas2 + notaprosistemas3 + notaprosistemas4 + notaprosistemas5) / 5);
 		case 7:
 			System.out.println((notabdd + notabdd2 + notabdd3 + notabdd4 + notabdd5) / 5);
 		case 8:

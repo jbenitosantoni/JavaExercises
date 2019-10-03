@@ -34,6 +34,8 @@ public class N8 {
 			System.out.print("En juego");
 		} else if (nadal > 7 || thiem > 7) {
 			System.out.print("Inválido");
+		} else if ((nadal < 6 && thiem >= 7) || (thiem < 6 && nadal >= 7)) {
+			System.out.print("Inválido");
 		}
 		sc.close();
 	}

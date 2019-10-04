@@ -17,6 +17,7 @@ public class Page2Ex5 {
 		if (nombre.equalsIgnoreCase("Pablito Escobar")) {
 			System.out.println("Plata o plomo!" + "\nHas introducido " + i + " nombres hasta acertar");
 		}
+		sc.close();
 	}
 
 }

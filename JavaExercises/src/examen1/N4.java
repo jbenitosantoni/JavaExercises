@@ -42,19 +42,19 @@ public class N4 {
 		System.out.println("Introduce asistencia (%)");
 		double asistencia5 = sc.nextDouble();
 
-		if (nota <= 10 && nota >= 6 && asistencia > 90) {
+		if ((nota <= 10 && nota >= 6) || asistencia > 90) {
 			System.out.println(nombre + " cumple los requisitos.");
 		}
-		if (nota2 <= 10 && nota2 >= 6 && asistencia2 > 90) {
+		if ((nota2 <= 10 && nota2 >= 6) || asistencia2 > 90) {
 			System.out.println(nombre2 + " cumple los requisitos.");
 		}
-		if (nota3 <= 10 && nota3 >= 6 && asistencia3 > 90) {
+		if ((nota3 <= 10 && nota3 >= 6) || asistencia3 > 90) {
 			System.out.println(nombre3 + " cumple los requisitos.");
 		}
-		if (nota4 <= 10 && nota4 >= 6 && asistencia4 > 90) {
+		if ((nota4 <= 10 && nota4 >= 6) || asistencia4 > 90) {
 			System.out.println(nombre4 + " cumple los requisitos.");
 		}
-		if (nota5 <= 10 && nota5 >= 6 && asistencia5 > 90) {
+		if ((nota5 <= 10 && nota5 >= 6) || asistencia5 > 90) {
 			System.out.println(nombre5 + " cumple los requisitos.");
 		}
 		sc.close();

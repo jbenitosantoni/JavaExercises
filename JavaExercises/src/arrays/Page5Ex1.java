@@ -74,7 +74,7 @@ public class Page5Ex1 {
 			case 5:
 				for (int i = 0; i < bd.length; i++) {
 					if (((programacion[i] + moviles[i] + bd[i]) / 4) > mejoralumnomedia) {
-						mejoralumnomedia = (programacion[i] + moviles[i] + bd[i]) / 4;
+						mejoralumnomedia = (programacion[i] + moviles[i] + bd[i]) / 3;
 						mejoralumno = nombres[i];
 					}
 				}
@@ -115,7 +115,7 @@ public class Page5Ex1 {
 				System.out.println(peoralumnomedia);
 				for (int i = 0; i < bd.length; i++) {
 					if (((programacion[i] + moviles[i] + bd[i]) / 4) < peoralumnomedia) {
-						peoralumnomedia = (programacion[i] + moviles[i] + bd[i]) / 4;
+						peoralumnomedia = (programacion[i] + moviles[i] + bd[i]) / 3;
 						peoralumno = nombres[i];
 					}
 				}

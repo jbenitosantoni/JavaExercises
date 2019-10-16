@@ -18,7 +18,7 @@ public class Page5Ex1 {
 		int mediabd = 0;
 		int mediaprogramacion = 0;
 		int mediamoviles = 0;
-		while (intro != 10) {
+		do {
 			System.out.println("1. Introducir nombres de alumnos");
 			System.out.println("2. Rellenar notas alumnos");
 			System.out.println("3. Mostrar notas de alumnos");
@@ -122,6 +122,8 @@ public class Page5Ex1 {
 				System.out.println("El peor alumno es: " + peoralumno + " con una media de: " + peoralumnomedia);
 				break;
 			}
+		}
+		while (intro != 10); {
 		}
 		sc.close();
 		sn.close();

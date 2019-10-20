@@ -35,7 +35,8 @@ public class Page1Ex6 {
 				}
 			}
 		}
-		System.out.print("Media BD: " + mediabd/notas.length + "\nMedia Programacion: " + mediaprogra/notas.length + "\nMedia moviles: " + mediamoviles/notas.length);
+		System.out.print("Media BD: " + mediabd / notas.length + "\nMedia Programacion: " + mediaprogra / notas.length
+				+ "\nMedia moviles: " + mediamoviles / notas.length);
 		sc.close();
 	}
 }

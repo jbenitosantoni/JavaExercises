@@ -74,7 +74,42 @@ public class Page2Ex1 {
 					}
 					System.out.println();
 				}
+			case 5:
+				System.out.print("Introduce nombre de alumno");
+				boolean existe2 = false;
+				for (int i = 0; i < notaAlumno[0].length; i++) {
+					if (sn.nextLine().equalsIgnoreCase(notaAlumno[i][0])) {
+						System.out.println("Introduce nota de Redes");
+						notaAlumno[i][1] = sn.nextLine();
+						System.out.println("Introduce nota de Sistemas");
+						notaAlumno[i][2] = sn.nextLine();
+						System.out.println("Introduce nota de Moviles");
+						notaAlumno[i][3] = sn.nextLine();
+						System.out.println("Introduce nota de Programacion");
+						notaAlumno[i][4] = sn.nextLine();
+						System.out.println("Introduce nota de Fol");
+						notaAlumno[i][5] = sn.nextLine();
+						existe2 = true;
+					}
+				}
+				if (!existe2) {
+					System.out.println("El alumno introducido no existe");
+				}
+			case 6:
+				for (int i = 0; i < notaAlumno.length; i++) {
+					for (int j = 1; j < notaAlumno[0].length; j++) {
+						notaAlumno[i][j] = "0";
+					}
+				}
+			case 7:
+				for (int i = 0; i < notaAlumno.length; i++) {
+					for (int j = 1; j < notaAlumno[0].length; j++) {
+						notaAlumno[i][j] = "5";
+					}
+				}
 			}
 		} while (intro != 8);
+		sc.close();
+		sn.close();
 	}
 }

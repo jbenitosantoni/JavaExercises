@@ -11,6 +11,7 @@ public class Page3Ex4 {
 		int contadorlarga = 0;
 		int contador = 0;
 		String texto = sc.nextLine();
+		texto += " ";
 		for (int i = 0; i < texto.length(); i++) {
 			contador++;
 			if (texto.charAt(i) == ' ') {

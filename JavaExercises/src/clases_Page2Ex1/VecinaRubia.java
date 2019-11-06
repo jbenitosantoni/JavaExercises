@@ -1,7 +1,6 @@
 package clases_Page2Ex1;
 
 public class VecinaRubia {
-// nombre, apellidos, nivel_brillibrilli(valor numérico), longitud_melena, nº_heaters, nº_followers.
 	private String nombre;
 	private String apellidos;
 	private int nivel_brillibrilli;

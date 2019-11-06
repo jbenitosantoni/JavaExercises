@@ -30,8 +30,7 @@ public class Main {
 			haters = sn.nextInt();
 			System.out.println("Numero Followers");
 			followers = sn.nextInt();
-			VecinaRubia vecina1 = new VecinaRubia(nombre, apellidos, brilli, melena, haters, followers);
-			vecina[i] = vecina1;
+			vecina[i] = new VecinaRubia(nombre, apellidos, brilli, melena, haters, followers);
 
 		}
 
@@ -58,9 +57,9 @@ public class Main {
 			alcohol = sn.nextInt();
 			System.out.println("Numero de haters");
 			haters = sn.nextInt();
-			CazurroLeones cazurro1 = new CazurroLeones(nombre, apellidos, cazurrismo, altura, peso, alcohol, haters);
-			cazurros[i] = cazurro1;
+			cazurros[i] = new CazurroLeones(nombre, apellidos, cazurrismo, altura, peso, alcohol, haters);
 		}
+
 		for (int i = 0; i < cazurros.length; i++) {
 			if (cazurros[i].getNivel_cazurrismo() > 9) {
 				cazurros[i].setCapacidad_alcoholica(cazurros[i].getCapacidad_alcoholica() + 1);

@@ -1,4 +1,4 @@
-package clases;
+package clases_Page1Ex1;
 
 public class Arcoiris {
 	private String nombrearcoiris;

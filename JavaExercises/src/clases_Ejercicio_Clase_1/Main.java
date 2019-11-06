@@ -1,4 +1,4 @@
-package clases;
+package clases_Ejercicio_Clase_1;
 
 import java.util.Scanner;
 

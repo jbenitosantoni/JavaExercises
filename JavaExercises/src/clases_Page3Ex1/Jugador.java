@@ -17,13 +17,14 @@ public class Jugador {
 	private int fpp; // Faltas por partido
 
 	// Constructor con todos sus atributos
-	public Jugador(String nombre, String apellidos, String direccion, String provincia, int edad, int nHijos, int ppp,
-			int app, int rpp, int tpp, int mpp, int perpp, int fpp) {
+	public Jugador(String nombre, String apellidos, String direccion, String provincia, String equipo, int edad,
+			int nHijos, int ppp, int app, int rpp, int tpp, int mpp, int perpp, int fpp) {
 		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.direccion = direccion;
 		this.provincia = provincia;
+		this.equipo = equipo;
 		this.edad = edad;
 		this.nHijos = nHijos;
 		this.ppp = ppp;
@@ -177,4 +178,12 @@ public class Jugador {
 			return false;
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "Nombre=" + nombre + ", apellidos=" + apellidos + ", direccion=" + direccion + ", provincia=" + provincia
+				+ ", equipo=" + equipo + ", edad=" + edad + ", nHijos=" + nHijos + ", ppp=" + ppp + ", app=" + app
+				+ ", rpp=" + rpp + ", tpp=" + tpp + ", mpp=" + mpp + ", perpp=" + perpp + ", fpp=" + fpp;
+	}
+
 }

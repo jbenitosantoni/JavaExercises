@@ -9,15 +9,18 @@ public class Main {
 		Scanner sn = new Scanner(System.in);
 		VecinaRubia[] vecina = new VecinaRubia[500];
 		CazurroLeones[] cazurros = new CazurroLeones[500];
+		String nombre;
+		String apellidos;
+		int cazurrismo;
+		int altura;
+		int peso;
+		int brilli;
+		int melena;
+		int followers;
+		int alcohol;
+		int haters;
 
 		for (int i = 0; i < vecina.length; i++) {
-			String nombre;
-			String apellidos;
-			int brilli;
-			int melena;
-			int haters;
-			int followers;
-
 			System.out.println("Nombre");
 			nombre = sc.nextLine();
 			System.out.println("Apellidos");
@@ -35,14 +38,6 @@ public class Main {
 		}
 
 		for (int i = 0; i < cazurros.length; i++) {
-			String nombre;
-			String apellidos;
-			int cazurrismo;
-			int altura;
-			int peso;
-			int alcohol;
-			int haters;
-
 			System.out.println("Nombre");
 			nombre = sc.nextLine();
 			System.out.println("Apellidos");

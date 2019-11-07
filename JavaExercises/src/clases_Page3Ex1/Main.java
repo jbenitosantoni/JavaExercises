@@ -23,7 +23,11 @@ public class Main {
 		int perpp = 0;
 		int fpp = 0;
 		String nombreintro = "";
+		String apellidointro = "";
 		boolean existe = false;
+		boolean apellidoexiste = false;
+		int varios = 0;
+		int posicion = 0;
 		for (int i = 0; i < jugadores.length; i++) {
 			System.out.println("Nombre");
 			nombre = sc.nextLine();
@@ -73,10 +77,29 @@ public class Main {
 				do {
 					System.out.println("Introduce nombre jugador");
 					nombreintro = sc.nextLine();
+
 					for (int i = 0; i < jugadores.length; i++) {
 						if (nombreintro.equalsIgnoreCase(jugadores[i].getNombre())) {
+							varios++;
+							posicion = i;
 							existe = true;
-							System.out.println(jugadores[i].toString());
+						}
+					}
+					if (existe) {
+						if (varios > 1) {
+							do {
+								System.out.println("Introduce apellido");
+								apellidointro = sc.nextLine();
+								for (int i = 0; i < jugadores.length; i++) {
+									if (apellidointro.equalsIgnoreCase(jugadores[i].getApellidos())) {
+										System.out.println(jugadores[i].toString());
+										existe = true;
+										apellidoexiste = true;
+									}
+								}
+							} while (!apellidoexiste);
+						} else {
+							System.out.println(jugadores[posicion].toString());
 						}
 					}
 					if (!existe) {

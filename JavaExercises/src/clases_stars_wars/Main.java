@@ -154,6 +154,9 @@ public class Main {
 				}
 			}
 		} while (intro != 11);
+		sc.close();
+		sn.close();
+		sm.close();
 	}
 
 }

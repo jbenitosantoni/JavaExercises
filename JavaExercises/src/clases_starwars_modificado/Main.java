@@ -19,34 +19,7 @@ public class Main {
 		String buscarnombre = "";
 		int valoruser = 0;
 		boolean nombrejediexiste = false;
-		for (int i = 0; i < padawans.length; i++) {
-			System.out.println("Introduce nombre");
-			nombre = sc.nextLine();
-			System.out.println("Introduce edad");
-			edad = sn.nextInt();
-			System.out.println("Introduce fuerza");
-			fuerza = sn.nextInt();
-			System.out.println("Introduce potencial");
-			potencial = sn.nextInt();
-			System.out.println("Introduce planeta");
-			planeta = sc.nextLine();
-			padawans[i] = new Padawan(nombre, edad, fuerza, potencial, planeta);
-		}
-
-		for (int i = 0; i < jedis.length; i++) {
-			System.out.println("Jedi: " + i);
-			System.out.println("Introduce nombre");
-			nombre = sc.nextLine();
-			System.out.println("Introduce edad");
-			edad = sn.nextInt();
-			System.out.println("Introduce fuerza");
-			fuerza = sn.nextInt();
-			System.out.println("Introduce planeta");
-			planeta = sc.nextLine();
-			System.out.println("Introduce color laser");
-			color_laser = sc.nextLine();
-			jedis[i] = new Jedi(nombre, edad, fuerza, planeta, color_laser);
-		}
+		Funciones.pedir(padawans, buscarnombre, edad, fuerza, potencial, planeta, jedis, color_laser);
 		do {
 			Funciones.menu();
 			intro = sn.nextInt();

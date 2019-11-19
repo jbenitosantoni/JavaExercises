@@ -223,7 +223,7 @@ public class Main {
 	}
 
 	public static void rellenarVuelos(Vuelo[] nArray) {
-		nArray[0] = new Vuelo(702563, "Medell�n", 450.0);
+		nArray[0] = new Vuelo(702563, "Medellin", 450.0);
 		nArray[1] = new Vuelo(702564, "Londer", 98.0);
 		nArray[2] = new Vuelo(702565, "Dublin", 56.0);
 		nArray[3] = new Vuelo(702566, "Barcelona", 40.0);

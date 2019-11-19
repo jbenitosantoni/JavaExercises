@@ -198,7 +198,7 @@ public class Main {
 	}
 
 	public static void rellenarControladores(Controlador[] nArray) {
-		nArray[0] = new Controlador("Pablo", "Garc�a", "51900041M", 1995, 9, 90);
+		nArray[0] = new Controlador("Pablo", "Garcia", "51900041M", 1995, 9, 90);
 		nArray[1] = new Controlador("Pablo", "Costa", "89753614Y", 1995, 5, 100);
 		nArray[2] = new Controlador("Antonio", "Andrino", "15233369P", 1999, 15, 92);
 		nArray[3] = new Controlador("Jesus", "Prados", "81373646A", 1995, 2, 100);

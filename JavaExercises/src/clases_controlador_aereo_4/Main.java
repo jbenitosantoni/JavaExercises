@@ -130,6 +130,7 @@ public class Main {
 				System.out.println("Introduce matricula avion");
 				intro = sc.nextLine();
 				if (Main.existeAvion(aviones, intro) == true) {
+					System.out.println("Introduce cuantos litros quieres sumar");
 					int deposito = sn.nextInt();
 					Main.cambiarAvion(aviones, intro, deposito);
 				} else {
@@ -169,7 +170,9 @@ public class Main {
 		System.out.println("Introduce nueva capacidad deposito");
 		for (int i = 0; i < aviones.length; i++) {
 			if (aviones[i].getMatricula().equalsIgnoreCase(intro)) {
-				aviones[i].setCap_deposito(deposito);
+				System.out.println("Antes: " + aviones[i].mostrarDatos());
+				aviones[i].setCap_deposito(aviones[i].getCap_deposito() + deposito);
+				System.out.println("Despues: " + aviones[i].mostrarDatos());
 			}
 		}
 	}
@@ -177,7 +180,9 @@ public class Main {
 	public static void cambiarControlador(Controlador[] controladores, String intro, int exp) {
 		for (int i = 0; i < controladores.length; i++) {
 			if (controladores[i].getDni().equalsIgnoreCase(intro)) {
+				System.out.println("Antes: " + controladores[i].mostrarDatos());
 				controladores[i].setAnosexp(controladores[i].getAnosexp() + exp);
+				System.out.println("Despues: " + controladores[i].mostrarDatos());
 			}
 		}
 	}
@@ -185,7 +190,9 @@ public class Main {
 	public static void cambiarCapacidadAvion(Avion[] aviones, String intro, int capacidad) {
 		for (int i = 0; i < aviones.length; i++) {
 			if (aviones[i].getMatricula().equalsIgnoreCase(intro)) {
+				System.out.println("Antes: " + aviones[i].mostrarDatos());
 				aviones[i].setCap_pasajeros(aviones[i].getCap_pasajeros() + capacidad);
+				System.out.println("Despues: " + aviones[i].mostrarDatos());
 			}
 		}
 	}

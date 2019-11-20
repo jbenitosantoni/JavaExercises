@@ -1,26 +1,12 @@
 package clases_controlador_aereo_6;
 
+import java.util.Arrays;
+
 public class Vuelo {
 	private int n_vuelo;
-
-	@Override
-	public String toString() {
-		return "Vuelo [n_vuelo=" + n_vuelo + ", c_destino=" + c_destino + ", precio=" + precio + "]";
-	}
-
 	private String c_destino;
 	private double precio;
-
-	public Vuelo() {
-
-	}
-
-	public Vuelo(int n_vuelo, String c_destino, Double precio) {
-		super();
-		this.n_vuelo = n_vuelo;
-		this.c_destino = c_destino;
-		this.precio = precio;
-	}
+	private Pasajero[] pasajeros = new Pasajero[2];
 
 	public int getN_vuelo() {
 		return n_vuelo;
@@ -38,16 +24,34 @@ public class Vuelo {
 		this.c_destino = c_destino;
 	}
 
-	public Double getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(Double precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 
-	public String mostrarDatos() {
-		return "Vuelo [n_vuelo=" + n_vuelo + ", c_destino=" + c_destino + ", precio=" + precio + "]";
+	public Pasajero[] getPasajeros() {
+		return pasajeros;
+	}
+
+	public void setPasajeros(Pasajero[] pasajeros) {
+		this.pasajeros = pasajeros;
+	}
+
+	public Vuelo(int n_vuelo, String c_destino, double precio, Pasajero[] pasajeros) {
+		super();
+		this.n_vuelo = n_vuelo;
+		this.c_destino = c_destino;
+		this.precio = precio;
+		this.pasajeros = pasajeros;
+	}
+
+	@Override
+	public String toString() {
+		return "Vuelo [n_vuelo=" + n_vuelo + ", c_destino=" + c_destino + ", precio=" + precio + ", pasajeros="
+				+ Arrays.toString(pasajeros) + "]";
 	}
 
 }

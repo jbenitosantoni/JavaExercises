@@ -6,7 +6,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
 		Controlador[] controladores = new Controlador[5];
 		Aerolinea[] aerolineas = new Aerolinea[5];
 		Avion[] aviones = new Avion[5];
@@ -126,7 +125,23 @@ public class Main {
 				}
 				break;
 			case 8:
-				Main.avionMayorDeposito(aviones).toString();
+				System.out.println(Main.avionMayorDeposito(aviones).toString());
+				break;
+			case 9:
+				System.out.println(Main.avionMenorPasajeros(aviones).toString());
+				break;
+			case 10:
+				System.out.println(Main.controladorMayorDestreza(controladores).toString());
+				break;
+			case 11:
+				System.out.println(Main.tresControladoresMayorExperiencia(controladores)[0].toString());
+				System.out.println(Main.tresControladoresMayorExperiencia(controladores)[1].toString());
+				System.out.println(Main.tresControladoresMayorExperiencia(controladores)[2].toString());
+				break;
+			case 12:
+				System.out.println(Main.dosVuelosMenosCaros(vuelos)[0].toString());
+				System.out.println(Main.dosVuelosMenosCaros(vuelos)[1].toString());
+				break;
 			case 13:
 				System.out.println("Hasta pronto!");
 				break;
@@ -191,6 +206,74 @@ public class Main {
 		return aviones[mayor];
 	}
 
+	public static Avion avionMenorPasajeros(Avion[] aviones) {
+		int menor = 0;
+		for (int i = 0; i < aviones.length; i++) {
+			if (i > 0) {
+				if (aviones[i].getCap_pasajeros() < aviones[i - 1].getCap_pasajeros()) {
+					menor = i;
+				}
+			}
+		}
+		return aviones[menor];
+	}
+
+	public static Controlador controladorMayorDestreza(Controlador[] controladores) {
+		int mayor = 0;
+		for (int i = 0; i < controladores.length; i++) {
+			if (i > 0) {
+				if (controladores[i].getDestreza() > controladores[i - 1].getDestreza()) {
+					mayor = i;
+				}
+			}
+		}
+		return controladores[mayor];
+	}
+
+	public static Controlador[] tresControladoresMayorExperiencia(Controlador[] controladores) {
+		int mayor = 0;
+		int mediano = 0;
+		int menor = 0;
+		for (int i = 0; i < controladores.length; i++) {
+			if (i > 0) {
+				if (controladores[i].getAnosexp() > controladores[i - 1].getAnosexp()) {
+					mayor = i;
+				}
+				if (i != mayor) {
+					if (controladores[i].getAnosexp() > controladores[i - 1].getAnosexp()) {
+						mediano = i;
+					}
+				}
+				if (i != mayor && i != mediano) {
+					if (controladores[i].getAnosexp() > controladores[i - 1].getAnosexp()) {
+						menor = i;
+					}
+				}
+			}
+		}
+		Controlador mejores[] = { controladores[mayor], controladores[mediano], controladores[menor] };
+		return mejores;
+	}
+
+	public static Vuelo[] dosVuelosMenosCaros(Vuelo[] vuelos) {
+		int mayor = 0;
+		int menor = 0;
+		for (int i = 0; i < vuelos.length; i++) {
+			if (i > 0) {
+				if (vuelos[i].getPrecio() < vuelos[i - 1].getPrecio()) {
+					mayor = i;
+				}
+				if (i != mayor) {
+					if (vuelos[i].getPrecio() < vuelos[i - 1].getPrecio()) {
+						menor = i;
+					}
+				}
+			}
+		}
+		Vuelo mejores[] = { vuelos[mayor], vuelos[menor] };
+		return mejores;
+	}
+
 	public static boolean existeAerolinea(Aerolinea[] nArray, String nombre) {
 		boolean existe = false;
 		for (int i = 0; i < nArray.length; i++) {
@@ -222,8 +305,10 @@ public class Main {
 	}
 
 	public static void menu() {
-		System.out.println("Elija una opci�n:\r\n" + "1.- Buscar.\r\n" + "2.- Modificar datos.\r\n"
-				+ "3.- Mostrar datos.\r\n" + "4.- Salir.");
+		System.out.println(
+				"Elija una opci�n:\r\n" + "1.- Buscar.\r\n" + "2.- Modificar datos.\r\n" + "3.- Mostrar datos.\r\n"
+						+ "8. Mayor Deposito \r\n" + "9. Menor Pasajeros\r\n" + "10. Mayor destreza\r\n"
+						+ "11. 3 Mayor experiencia\r\n" + "12. Dos vuelos mas baratos\r\n" + "13.- Salir.");
 
 	}
 

@@ -159,8 +159,9 @@ public class Main {
 				break;
 			case 16:
 				for (int i = 0; i < Main.dniPasajero(vuelos).length; i++) {
-					Main.dniPasajero(vuelos)[i].getDni();
+					System.out.println(Main.dniPasajero(vuelos)[i].toString());
 				}
+
 				break;
 			case 17:
 				System.out.println("Hasta pronto!");
@@ -172,7 +173,7 @@ public class Main {
 	}
 
 	public static void rellenarPasajeros(Pasajero[] pasajeros) {
-		String nombres[] = { "Javier", "Javier", "Javier", "Javier", "Javier", "Javier", "Javier", "Javier", "Javier",
+		String nombres[] = { "Javier", "Javier", "Javier", "Javier", "Javier", "Javier", "Javier", "Javier", "Antonio",
 				"Javier" };
 		String apellidos[] = { "Benito", "Benito", "Benito", "Perez", "Benito", "Benito", "Benito", "Benito", "Benito",
 				"Benito" };
@@ -359,7 +360,6 @@ public class Main {
 				}
 			}
 		}
-
 		return pasajeros;
 	}
 

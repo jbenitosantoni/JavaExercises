@@ -156,6 +156,9 @@ public class Main {
 			case 15:
 				Main.pasajeros(vuelos);
 				break;
+			case 16:
+
+				break;
 			case 17:
 				System.out.println("Hasta pronto!");
 				break;
@@ -170,7 +173,7 @@ public class Main {
 				"Javier" };
 		String apellidos[] = { "Benito", "Benito", "Benito", "Perez", "Benito", "Benito", "Benito", "Benito", "Benito",
 				"Benito" };
-		String dni[] = { "06022326Y", "06022326Y", "06022326Y", "06022326Y", "06022326Y", "06022326Y", "06022326Y",
+		String dni[] = { "06022326H", "06022326Y", "06022326Y", "06022326M", "06022326Y", "06022326Y", "06022326Y",
 				"06022326Y", "06022326Y", "06022326Y" };
 		int edades[] = { 2, 3, 6, 1, 24, 300, 62, 32, 125, 121 };
 		String provincias[] = { "Madrid", "Madrid", "Madrid", "Madrid", "Madrid", "Madrid", "Madrid", "Madrid",
@@ -212,7 +215,7 @@ public class Main {
 		Pasajero[] avion4 = { pasajeros[6], pasajeros[7] };
 		Pasajero[] avion5 = { pasajeros[8], pasajeros[9] };
 		nArray[0] = new Vuelo(702563, "Medellin", 450.0, avion1);
-		nArray[1] = new Vuelo(702564, "Londer", 10.0, avion2);
+		nArray[1] = new Vuelo(702564, "Londres", 10.0, avion2);
 		nArray[2] = new Vuelo(702565, "Dublin", 56.0, avion3);
 		nArray[3] = new Vuelo(702566, "Barcelona", 40.0, avion4);
 		nArray[4] = new Vuelo(702567, "Roma", 120.0, avion5);
@@ -480,7 +483,7 @@ public class Main {
 	 * 
 	 * pasajeros[x][3] DNI
 	 * 
-	 * pasajeros[x][4] Cuidad
+	 * pasajeros[x][4] Cuidad del Vuelo
 	 * 
 	 * 
 	 * @author Javier Benito Santoni
@@ -494,22 +497,20 @@ public class Main {
 		String pasajeros[][] = new String[pasajerosExisten][5];
 		for (int i = 0; i < vuelos.length; i++) {
 			for (int j = 0; j < vuelos[i].getPasajeros().length; j++) {
-				pasajeros[repite][0] = "i";
-				pasajeros[repite][1] = "j";
-				// pasajeros[repite][2] = vuelos[i].getPasajeros()[j].getEdad();
-				// pasajeros[repite][3] = vuelos[i].getPasajeros()[j].getDNI();
+				pasajeros[repite][0] = String.valueOf(i);
+				pasajeros[repite][1] = String.valueOf(j);
+				pasajeros[repite][2] = String.valueOf(vuelos[i].getPasajeros()[j].getEdad());
+				pasajeros[repite][3] = vuelos[i].getPasajeros()[j].getDni();
+				pasajeros[repite][4] = vuelos[i].getC_destino();
 				repite++;
 			}
 		}
 		int cantidad = 0;
-
 		for (int i = 0; i < pasajeros.length; i++) {
-			if (pasajeros[i][3].charAt(pasajeros[i][3].length() - 1) == 'H'
-					&& pasajeros[i][4].equalsIgnoreCase("Medellin")) {
+			if (pasajeros[i][3].charAt(8) == 'H' && pasajeros[i][4].equalsIgnoreCase("Medellin")) {
 				cantidad++;
 			}
 		}
-		System.out.println(pasajeros[2][4]);
 		int indicepasajero[] = new int[cantidad];
 		int cantidad2 = 0;
 		for (int i = 0; i < pasajeros.length; i++) {
@@ -519,11 +520,11 @@ public class Main {
 				cantidad2++;
 			}
 		}
+
 		int indicevuelo[] = new int[cantidad];
 		for (int i = 0; i < indicepasajero.length; i++) {
 			indicevuelo[i] = indicepasajero[i];
 		}
-		System.out.println(vuelos[indicevuelo[0]].getPasajeros()[indicepasajero[0]]);
 		for (int i = 0; i < indicepasajero.length; i++) {
 			System.out.println(vuelos[indicevuelo[i]].getPasajeros()[indicepasajero[i]]);
 		}

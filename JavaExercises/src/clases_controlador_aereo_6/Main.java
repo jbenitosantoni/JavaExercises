@@ -150,14 +150,17 @@ public class Main {
 				System.out.println(Main.cuatroPasajerosMayorEdad(vuelos)[3]);
 				break;
 			case 14:
-				System.out.println(Main.pasajeroMasJoven(vuelos)[0].getNombre() + " "
-						+ Main.pasajeroMasJoven(vuelos)[0].getApellido());
+				Main.pasajeroMasJoven(vuelos);
 				break;
 			case 15:
-				Main.pasajeros(vuelos);
+				for (int i = 0; i < Main.pasajeros(vuelos).length; i++) {
+					Main.pasajeros(vuelos)[i].toString();
+				}
 				break;
 			case 16:
-
+				for (int i = 0; i < Main.dniPasajero(vuelos).length; i++) {
+					Main.dniPasajero(vuelos)[i].getDni();
+				}
 				break;
 			case 17:
 				System.out.println("Hasta pronto!");
@@ -173,7 +176,7 @@ public class Main {
 				"Javier" };
 		String apellidos[] = { "Benito", "Benito", "Benito", "Perez", "Benito", "Benito", "Benito", "Benito", "Benito",
 				"Benito" };
-		String dni[] = { "06022326H", "06022326Y", "06022326Y", "06022326M", "06022326Y", "06022326Y", "06022326Y",
+		String dni[] = { "06022326H", "01022326Y", "02022326Y", "03022326M", "04022326Y", "50022326Y", "19022326Y",
 				"06022326Y", "06022326Y", "06022326Y" };
 		int edades[] = { 2, 3, 6, 1, 24, 300, 62, 32, 125, 121 };
 		String provincias[] = { "Madrid", "Madrid", "Madrid", "Madrid", "Madrid", "Madrid", "Madrid", "Madrid",
@@ -216,7 +219,7 @@ public class Main {
 		Pasajero[] avion5 = { pasajeros[8], pasajeros[9] };
 		nArray[0] = new Vuelo(702563, "Medellin", 450.0, avion1);
 		nArray[1] = new Vuelo(702564, "Londres", 10.0, avion2);
-		nArray[2] = new Vuelo(702565, "Dublin", 56.0, avion3);
+		nArray[2] = new Vuelo(702565, "Dublin", 10.0, avion3);
 		nArray[3] = new Vuelo(702566, "Barcelona", 40.0, avion4);
 		nArray[4] = new Vuelo(702567, "Roma", 120.0, avion5);
 	}
@@ -274,23 +277,27 @@ public class Main {
 		int indicemediano = 0;
 		int menor = 0;
 		int indicemenor = 0;
+		String dni[] = new String[3];
 		for (int i = 0; i < controladores.length; i++) {
 			if (controladores[i].getAnosexp() > mayor) {
 				mayor = controladores[i].getAnosexp();
 				indicemayor = i;
+				dni[0] = controladores[i].getDni();
 			}
 		}
 		for (int i = 0; i < controladores.length; i++) {
-			if (controladores[i].getAnosexp() > mediano && controladores[i].getAnosexp() < mayor) {
+			if (controladores[i].getAnosexp() > mediano && !controladores[i].getDni().equalsIgnoreCase(dni[0])) {
 				mediano = controladores[i].getAnosexp();
 				indicemediano = i;
+				dni[1] = controladores[i].getDni();
 			}
 		}
 		for (int i = 0; i < controladores.length; i++) {
-			if (controladores[i].getAnosexp() > menor && controladores[i].getAnosexp() < mayor
-					&& controladores[i].getAnosexp() < mediano) {
+			if (controladores[i].getAnosexp() > menor && !controladores[i].getDni().equalsIgnoreCase(dni[1])
+					&& !controladores[i].getDni().equalsIgnoreCase(dni[0])) {
 				menor = controladores[i].getAnosexp();
 				indicemenor = i;
+				dni[2] = controladores[i].getDni();
 			}
 		}
 
@@ -301,7 +308,7 @@ public class Main {
 
 	public static Vuelo[] dosVuelosMenosCaros(Vuelo[] vuelos) {
 		double preciomasalto = 0;
-
+		int nVuelo[] = new int[2];
 		for (int i = 0; i < vuelos.length; i++) {
 			if (vuelos[i].getPrecio() > preciomasalto) {
 				preciomasalto = vuelos[i].getPrecio();
@@ -314,12 +321,14 @@ public class Main {
 		for (int i = 0; i < vuelos.length; i++) {
 			if (vuelos[i].getPrecio() < ultimo) {
 				ultimo = vuelos[i].getPrecio();
+				nVuelo[0] = vuelos[i].getN_vuelo();
 				indiceultimo = i;
 			}
 		}
 		for (int i = 0; i < vuelos.length; i++) {
-			if (vuelos[i].getPrecio() < penultimo && vuelos[i].getPrecio() > ultimo) {
+			if (vuelos[i].getPrecio() < penultimo && vuelos[i].getN_vuelo() != nVuelo[0]) {
 				penultimo = vuelos[i].getPrecio();
+				nVuelo[1] = vuelos[i].getN_vuelo();
 				indicepenultimo = i;
 			}
 		}
@@ -327,90 +336,101 @@ public class Main {
 		return mejores;
 	}
 
-	/**
-	 * [filas][columnas]
-	 * 
-	 * x = pasajero
-	 * 
-	 * pasajeros[x][0] Numero Vuelo
-	 * 
-	 * pasajeros[x][1] Numero Pasajero dentro de vuelo
-	 * 
-	 * pasajeros[x][2] Edad de pasajero
-	 * 
-	 * mayor1... El numero mas grande
-	 * 
-	 * posicion1... La posicion del pasajero mayor
-	 * 
-	 * vueloposicion1... El vuelo en el que se encuentra la posicion del pasajero
-	 * mayor
-	 * 
-	 * @author Javier Benito Santoni
-	 */
-	public static Pasajero[] cuatroPasajerosMayorEdad(Vuelo[] vuelos) {
-		int pasajerosExisten = 0;
+	public static Pasajero[] dniPasajero(Vuelo[] vuelos) {
+		int contador = 0;
 		for (int i = 0; i < vuelos.length; i++) {
-			pasajerosExisten = pasajerosExisten + vuelos[i].getPasajeros().length;
-		}
-		int repite = 0;
-		int pasajeros[][] = new int[pasajerosExisten][3];
-		for (int i = 0; i < vuelos.length; i++) {
-			for (int j = 0; j < vuelos[i].getPasajeros().length; j++) {
-				pasajeros[repite][0] = i;
-				pasajeros[repite][1] = j;
-				pasajeros[repite][2] = vuelos[i].getPasajeros()[j].getEdad();
-				repite++;
+			if (vuelos[i].getPrecio() < 500) {
+				for (int j = 0; j < vuelos[i].getPasajeros().length; j++) {
+					if (!vuelos[i].getPasajeros()[j].getNombre().equalsIgnoreCase("Antonio")) {
+						contador++;
+					}
+				}
 			}
 		}
-		int mayor1 = 0;
+		Pasajero[] pasajeros = new Pasajero[contador];
+		int contador3 = 0;
+		for (int i = 0; i < vuelos.length; i++) {
+			if (vuelos[i].getPrecio() < 500) {
+				for (int j = 0; j < vuelos[i].getPasajeros().length; j++) {
+					if (!vuelos[i].getPasajeros()[j].getNombre().equalsIgnoreCase("Antonio")) {
+						pasajeros[contador3] = vuelos[i].getPasajeros()[j];
+						contador3++;
+					}
+				}
+			}
+		}
+
+		return pasajeros;
+	}
+
+	public static Pasajero[] cuatroPasajerosMayorEdad(Vuelo[] vuelos) {
+		int mayor = 0;
 		int posicion1 = 0;
 		int vueloposicion1 = 0;
-		int mayor2 = 0;
 		int posicion2 = 0;
 		int vueloposicion2 = 0;
-		int mayor3 = 0;
 		int posicion3 = 0;
 		int vueloposicion3 = 0;
-		int mayor4 = 0;
 		int posicion4 = 0;
 		int vueloposicion4 = 0;
-		for (int i = 0; i < pasajeros.length; i++) {
-			if (pasajeros[i][2] > mayor1) {
-				mayor1 = pasajeros[i][2];
-				vueloposicion1 = pasajeros[i][0];
-				posicion1 = i;
+		String dni[] = new String[4];
+		for (int i = 0; i < vuelos.length; i++) {
+			for (int j = 0; j < vuelos[i].getPasajeros().length; j++) {
+				if (vuelos[i].getPasajeros()[j].getEdad() > mayor) {
+					mayor = vuelos[i].getPasajeros()[j].getEdad();
+					vueloposicion1 = j;
+					posicion1 = i;
+					dni[0] = vuelos[posicion1].getPasajeros()[vueloposicion1].getDni();
+				}
 			}
 		}
 
-		for (int i = 0; i < pasajeros.length; i++) {
-			if (pasajeros[i][2] > mayor2 && pasajeros[i][2] < mayor1) {
-				mayor2 = pasajeros[i][2];
-				vueloposicion2 = pasajeros[i][0];
-				posicion2 = i;
+		mayor = 0;
+		for (int i = 0; i < vuelos.length; i++) {
+			for (int j = 0; j < vuelos[i].getPasajeros().length; j++) {
+				if (vuelos[i].getPasajeros()[j].getEdad() > mayor
+						&& !vuelos[i].getPasajeros()[j].getDni().equalsIgnoreCase(dni[0])) {
+					mayor = vuelos[i].getPasajeros()[j].getEdad();
+					vueloposicion2 = j;
+					posicion2 = i;
+					dni[1] = vuelos[posicion2].getPasajeros()[vueloposicion2].getDni();
+				}
+			}
+		}
+		System.out.println(dni[1]);
+		mayor = 0;
+		for (int i = 0; i < vuelos.length; i++) {
+			for (int j = 0; j < vuelos[i].getPasajeros().length; j++) {
+				if (vuelos[i].getPasajeros()[j].getEdad() > mayor
+						&& !vuelos[i].getPasajeros()[j].getDni().equalsIgnoreCase(dni[0])
+						&& !vuelos[i].getPasajeros()[j].getDni().equalsIgnoreCase(dni[1])) {
+
+					mayor = vuelos[i].getPasajeros()[j].getEdad();
+					vueloposicion3 = j;
+					posicion3 = i;
+					dni[2] = vuelos[posicion3].getPasajeros()[vueloposicion3].getDni();
+				}
+			}
+		}
+		mayor = 0;
+		for (int i = 0; i < vuelos.length; i++) {
+			for (int j = 0; j < vuelos[i].getPasajeros().length; j++) {
+
+				if (vuelos[i].getPasajeros()[j].getEdad() > mayor
+						&& !vuelos[i].getPasajeros()[j].getDni().equalsIgnoreCase(dni[0])
+						&& !vuelos[i].getPasajeros()[j].getDni().equalsIgnoreCase(dni[1])
+						&& !vuelos[i].getPasajeros()[j].getDni().equalsIgnoreCase(dni[2])) {
+					mayor = vuelos[i].getPasajeros()[j].getEdad();
+					vueloposicion4 = j;
+					posicion4 = i;
+					dni[3] = vuelos[posicion4].getPasajeros()[vueloposicion4].getDni();
+				}
 			}
 		}
 
-		for (int i = 0; i < pasajeros.length; i++) {
-			if (pasajeros[i][2] > mayor3 && pasajeros[i][2] < mayor2) {
-
-				mayor3 = pasajeros[i][2];
-				vueloposicion3 = pasajeros[i][0];
-				posicion3 = i;
-			}
-		}
-		for (int i = 0; i < pasajeros.length; i++) {
-
-			if (pasajeros[i][2] > mayor4 && pasajeros[i][2] < mayor3) {
-				mayor4 = pasajeros[i][2];
-				vueloposicion4 = pasajeros[i][0];
-				posicion4 = i;
-			}
-		}
-
-		Pasajero[] cuatromayores = { vuelos[vueloposicion1].getPasajeros()[pasajeros[posicion1][1]],
-				vuelos[vueloposicion2].getPasajeros()[pasajeros[posicion2][1]],
-				vuelos[vueloposicion3].getPasajeros()[pasajeros[posicion3][1]],
-				vuelos[vueloposicion4].getPasajeros()[pasajeros[posicion4][1]] };
+		Pasajero[] cuatromayores = { vuelos[posicion1].getPasajeros()[vueloposicion1],
+				vuelos[posicion2].getPasajeros()[vueloposicion2], vuelos[posicion3].getPasajeros()[vueloposicion3],
+				vuelos[posicion4].getPasajeros()[vueloposicion4] };
 		return cuatromayores;
 	}
 
@@ -435,7 +455,7 @@ public class Main {
 	 * 
 	 * @author Javier Benito Santoni
 	 */
-	public static Pasajero[] pasajeroMasJoven(Vuelo[] vuelos) {
+	public static Pasajero pasajeroMasJoven(Vuelo[] vuelos) {
 		int pasajerosExisten = 0;
 		for (int i = 0; i < vuelos.length; i++) {
 			pasajerosExisten = pasajerosExisten + vuelos[i].getPasajeros().length;
@@ -466,68 +486,32 @@ public class Main {
 				menorvueloposicion = pasajeros[i][0];
 			}
 		}
-		Pasajero[] pasajeromenor = { vuelos[menorvueloposicion].getPasajeros()[pasajeros[menorposicion][1]] };
+		Pasajero pasajeromenor = vuelos[menorvueloposicion].getPasajeros()[pasajeros[menorposicion][1]];
 		return pasajeromenor;
 	}
 
-	/**
-	 * [filas][columnas]
-	 * 
-	 * x = pasajero
-	 * 
-	 * pasajeros[x][0] Numero Vuelo
-	 * 
-	 * pasajeros[x][1] Numero Pasajero dentro de vuelo
-	 * 
-	 * pasajeros[x][2] Edad de pasajero
-	 * 
-	 * pasajeros[x][3] DNI
-	 * 
-	 * pasajeros[x][4] Cuidad del Vuelo
-	 * 
-	 * 
-	 * @author Javier Benito Santoni
-	 */
-	public static void pasajeros(Vuelo[] vuelos) {
-		int pasajerosExisten = 0;
-		for (int i = 0; i < vuelos.length; i++) {
-			pasajerosExisten = pasajerosExisten + vuelos[i].getPasajeros().length;
-		}
-		int repite = 0;
-		String pasajeros[][] = new String[pasajerosExisten][5];
+	public static Pasajero[] pasajeros(Vuelo[] vuelos) {
+		int cantidad = 0;
 		for (int i = 0; i < vuelos.length; i++) {
 			for (int j = 0; j < vuelos[i].getPasajeros().length; j++) {
-				pasajeros[repite][0] = String.valueOf(i);
-				pasajeros[repite][1] = String.valueOf(j);
-				pasajeros[repite][2] = String.valueOf(vuelos[i].getPasajeros()[j].getEdad());
-				pasajeros[repite][3] = vuelos[i].getPasajeros()[j].getDni();
-				pasajeros[repite][4] = vuelos[i].getC_destino();
-				repite++;
+				if (vuelos[i].getPasajeros()[j].getDni().charAt(8) == 'H'
+						&& vuelos[i].getC_destino().equalsIgnoreCase("Medellin")) {
+					cantidad++;
+				}
 			}
 		}
-		int cantidad = 0;
-		for (int i = 0; i < pasajeros.length; i++) {
-			if (pasajeros[i][3].charAt(8) == 'H' && pasajeros[i][4].equalsIgnoreCase("Medellin")) {
-				cantidad++;
+		Pasajero[] pasajeros = new Pasajero[cantidad];
+		int contador = 0;
+		for (int i = 0; i < vuelos.length; i++) {
+			for (int j = 0; j < vuelos[i].getPasajeros().length; j++) {
+				if (vuelos[i].getPasajeros()[j].getDni().charAt(8) == 'H'
+						&& vuelos[i].getC_destino().equalsIgnoreCase("Medellin")) {
+					pasajeros[contador] = vuelos[i].getPasajeros()[j];
+					contador++;
+				}
 			}
 		}
-		int indicepasajero[] = new int[cantidad];
-		int cantidad2 = 0;
-		for (int i = 0; i < pasajeros.length; i++) {
-			if (pasajeros[i][3].charAt(pasajeros[i][3].length() - 1) == 'H'
-					&& pasajeros[i][4].equalsIgnoreCase("Medellin")) {
-				indicepasajero[cantidad2] = i;
-				cantidad2++;
-			}
-		}
-
-		int indicevuelo[] = new int[cantidad];
-		for (int i = 0; i < indicepasajero.length; i++) {
-			indicevuelo[i] = indicepasajero[i];
-		}
-		for (int i = 0; i < indicepasajero.length; i++) {
-			System.out.println(vuelos[indicevuelo[i]].getPasajeros()[indicepasajero[i]]);
-		}
+		return pasajeros;
 	}
 
 	public static boolean existeAerolinea(Aerolinea[] nArray, String nombre) {

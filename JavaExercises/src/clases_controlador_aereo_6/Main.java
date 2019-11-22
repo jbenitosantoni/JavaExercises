@@ -159,7 +159,7 @@ public class Main {
 				break;
 			case 16:
 				for (int i = 0; i < Main.dniPasajero(vuelos).length; i++) {
-					Main.dniPasajero(vuelos)[i].getDni();
+					Main.dniPasajero(vuelos)[i].getDni().toString();
 				}
 				break;
 			case 17:

@@ -17,6 +17,11 @@ public class Main {
 		rellenarEquiposLiga(equiposLiga);
 		Main.insertarJugadores(equiposLiga, jugadoresLiga);
 		Main.mostrarJugadoresEnEquipos(equiposLiga);
+		ArrayList<Arbitro> arbitros = new ArrayList<Arbitro>();
+	}
+
+	public static void rellenarArbitros(Arbitro[] arbitros) {
+
 	}
 
 	public static void rellenarJugadores(Jugador[] jugadores) {
@@ -49,20 +54,55 @@ public class Main {
 	public static void insertarJugadores(Equipo[] equipo, Jugador[] jugadores) {
 		Scanner sc = new Scanner(System.in);
 		Scanner sn = new Scanner(System.in);
+		int contador = 0;
 		ArrayList<Jugador> jugadoresInsertar = new ArrayList<Jugador>();
+		ArrayList<Jugador> jugadoresInsertar2 = new ArrayList<Jugador>();
+		ArrayList<Jugador> jugadoresInsertar3 = new ArrayList<Jugador>();
+		ArrayList<Jugador> jugadoresInsertar4 = new ArrayList<Jugador>();
 		for (int i = 0; i < equipo.length; i++) {
 			System.out.println(equipo[i]);
 			for (int j = 0; j < 4; j++) {
 				System.out.println("Introduce Dorsal de jugador a insertar");
 				int dorsal = sn.nextInt();
-				for (int z = 0; z < jugadores.length; z++) {
-					if (dorsal == jugadores[z].getDorsal()) {
-						jugadoresInsertar.add(jugadores[j]);
+				if (j == 0) {
+					for (int z = 0; z < jugadores.length; z++) {
+						if (dorsal == jugadores[z].getDorsal()) {
+							jugadoresInsertar.add(jugadores[j]);
+						}
+					}
+					if (j == 3) {
+						equipo[i].setJugadores(jugadoresInsertar);
+					}
+				}
+				if (j == 1) {
+					for (int z = 0; z < jugadores.length; z++) {
+						if (dorsal == jugadores[z].getDorsal()) {
+							jugadoresInsertar2.add(jugadores[j]);
+						}
+					}
+					if (j == 3) {
+						equipo[i].setJugadores(jugadoresInsertar2);
+					}
+				}
+				if (j == 2) {
+					for (int z = 0; z < jugadores.length; z++) {
+						if (dorsal == jugadores[z].getDorsal()) {
+							jugadoresInsertar3.add(jugadores[j]);
+						}
+					}
+					if (j == 3) {
+						equipo[i].setJugadores(jugadoresInsertar3);
 					}
 				}
 				if (j == 3) {
-					equipo[i].setJugadores(jugadoresInsertar);
-					System.out.println(equipo[i].getJugadores().size());
+					for (int z = 0; z < jugadores.length; z++) {
+						if (dorsal == jugadores[z].getDorsal()) {
+							jugadoresInsertar4.add(jugadores[j]);
+						}
+					}
+					if (j == 3) {
+						equipo[i].setJugadores(jugadoresInsertar4);
+					}
 				}
 			}
 		}

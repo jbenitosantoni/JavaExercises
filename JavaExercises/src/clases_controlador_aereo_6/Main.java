@@ -159,11 +159,11 @@ public class Main {
 				break;
 			case 16:
 				for (int i = 0; i < Main.dniPasajero(vuelos).length; i++) {
-<<<<<<< HEAD
+
 					Main.dniPasajero(vuelos)[i].getDni().toString();
-=======
+
 					System.out.println(Main.dniPasajero(vuelos)[i].toString());
->>>>>>> branch 'master' of https://github.com/jbenitosantoni/JavaExercises.git
+
 				}
 
 				break;

@@ -15,13 +15,20 @@ public class Main {
 		Equipo[] equiposLiga = new Equipo[4];
 		// llamo al método que rellena los 4 equipos con datos pero sin jugadores.
 		rellenarEquiposLiga(equiposLiga);
-		Main.insertarJugadores(equiposLiga, jugadoresLiga);
+		ArrayList<Arbitro> arbitroslist = new ArrayList<Arbitro>();
+		Main.rellenarArbitros(arbitroslist);
+		Main.rellenarJugadoresEnEquipos(equiposLiga, jugadoresLiga);
 		Main.mostrarJugadoresEnEquipos(equiposLiga);
-		ArrayList<Arbitro> arbitros = new ArrayList<Arbitro>();
+		ArrayList<String> partidos = new ArrayList();
+
 	}
 
-	public static void rellenarArbitros(Arbitro[] arbitros) {
-
+	public static void rellenarArbitros(ArrayList<Arbitro> arbitroslist) {
+		arbitroslist.add(new Arbitro("Javier", "06022326y", 21211, 20, 200));
+		arbitroslist.add(new Arbitro("Javier", "06027326y", 21221, 21, 122));
+		arbitroslist.add(new Arbitro("Javier", "06021324y", 21231, 10, 100));
+		arbitroslist.add(new Arbitro("Javier", "06027326y", 21241, 25, 80));
+		arbitroslist.add(new Arbitro("Javier", "06024376y", 21251, 5, 67));
 	}
 
 	public static void rellenarJugadores(Jugador[] jugadores) {
@@ -42,6 +49,33 @@ public class Main {
 		jugadores[14] = new Jugador("Sebe", 27, "Delantero", 11, "La Mula");
 		jugadores[15] = new Jugador("Lucas", 28, "Medio", 1, "El Desconocido");
 
+	}
+
+	public static void rellenarJugadoresEnEquipos(Equipo[] equipo, Jugador[] jugadores) {
+		ArrayList<Jugador> jugadoresInsertar = new ArrayList<Jugador>();
+		ArrayList<Jugador> jugadoresInsertar2 = new ArrayList<Jugador>();
+		ArrayList<Jugador> jugadoresInsertar3 = new ArrayList<Jugador>();
+		ArrayList<Jugador> jugadoresInsertar4 = new ArrayList<Jugador>();
+		jugadoresInsertar.add(jugadores[0]);
+		jugadoresInsertar.add(jugadores[1]);
+		jugadoresInsertar.add(jugadores[2]);
+		jugadoresInsertar.add(jugadores[3]);
+		jugadoresInsertar2.add(jugadores[4]);
+		jugadoresInsertar2.add(jugadores[5]);
+		jugadoresInsertar2.add(jugadores[6]);
+		jugadoresInsertar2.add(jugadores[7]);
+		jugadoresInsertar3.add(jugadores[8]);
+		jugadoresInsertar3.add(jugadores[9]);
+		jugadoresInsertar3.add(jugadores[10]);
+		jugadoresInsertar3.add(jugadores[11]);
+		jugadoresInsertar4.add(jugadores[12]);
+		jugadoresInsertar4.add(jugadores[13]);
+		jugadoresInsertar4.add(jugadores[14]);
+		jugadoresInsertar4.add(jugadores[15]);
+		equipo[0].setJugadores(jugadoresInsertar);
+		equipo[1].setJugadores(jugadoresInsertar2);
+		equipo[2].setJugadores(jugadoresInsertar3);
+		equipo[3].setJugadores(jugadoresInsertar4);
 	}
 
 	public static void rellenarEquiposLiga(Equipo[] equipos) {

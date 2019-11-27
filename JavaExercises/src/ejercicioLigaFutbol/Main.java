@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Scanner sn = new Scanner(System.in);
 		// TODO Auto-generated method stub
 		// Creo el array de 20 jugadores
 		Jugador[] jugadoresLiga = new Jugador[16];
@@ -18,9 +20,74 @@ public class Main {
 		ArrayList<Arbitro> arbitroslist = new ArrayList<Arbitro>();
 		Main.rellenarArbitros(arbitroslist);
 		Main.rellenarJugadoresEnEquipos(equiposLiga, jugadoresLiga);
-		Main.mostrarJugadoresEnEquipos(equiposLiga);
-		ArrayList<String> partidos = new ArrayList();
+		ArrayList<String> partido1 = new ArrayList();
+		ArrayList<String> partido2 = new ArrayList();
+		ArrayList<String> partido3 = new ArrayList();
+		ArrayList<String> partido4 = new ArrayList();
+		Main.RellenarPartidos(equiposLiga, jugadoresLiga, sc, sn, partido1, partido2, partido3, partido4);
 
+	}
+
+	public static boolean comprobarApodo(Jugador[] jugadores, String intro) {
+		Boolean existe = false;
+		for (int i = 0; i < jugadores.length; i++) {
+			if (jugadores[i].getApodo().equalsIgnoreCase(intro)) {
+				existe = true;
+			}
+		}
+		if (!existe) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	public static int sumaGolesInfinito(Jugador[] jugadores, Scanner sn) {
+		ArrayList<Integer> goles = new ArrayList<Integer>();
+		System.out.println("Introduce numero de jugadores a calcular");
+		int cantidad = sn.nextInt();
+		for (int i = 0; i < cantidad; i++) {
+			goles.add(sn.nextInt());
+		}
+		int suma = 0;
+		for (int i = 0; i < goles.size(); i++) {
+			suma = suma + goles.get(i);
+		}
+		return suma;
+	}
+
+	public static int sumadorGoles(Jugador[] jugadores, Scanner sn) {
+		int dorsal = 0;
+		int posicion = 0;
+		int posicion2 = 0;
+		System.out.println("Introduce dorsal jugador 1");
+		dorsal = sn.nextInt();
+		for (int i = 0; i < jugadores.length; i++) {
+			if (jugadores[i].getDorsal() == dorsal) {
+				posicion = i;
+			}
+		}
+		System.out.println("Introduce dorsal jugador 2");
+		dorsal = sn.nextInt();
+		for (int i = 0; i < jugadores.length; i++) {
+			if (jugadores[i].getDorsal() == dorsal) {
+				posicion2 = i;
+			}
+		}
+		return jugadores[posicion].getGoles() + jugadores[posicion2].getGoles();
+	}
+
+	public static String mostrarJugador(Jugador[] jugadores, Scanner sn) {
+		int dorsal = 0;
+		int posicion = 0;
+		System.out.println("Introduce dorsal jugador");
+		dorsal = sn.nextInt();
+		for (int i = 0; i < jugadores.length; i++) {
+			if (jugadores[i].getDorsal() == dorsal) {
+				posicion = i;
+			}
+		}
+		return jugadores[posicion].toString();
 	}
 
 	public static void rellenarArbitros(ArrayList<Arbitro> arbitroslist) {
@@ -150,5 +217,168 @@ public class Main {
 				System.out.println(equipo[i].getJugadores().get(j));
 			}
 		}
+	}
+
+	public static void RellenarPartidos(Equipo[] equiposLiga, Jugador[] jugadoresLiga, Scanner sc, Scanner sn,
+			ArrayList<String> partido1, ArrayList<String> partido2, ArrayList<String> partido3,
+			ArrayList<String> partido4) {
+		String nombre = "";
+		int dorsal = 0;
+		System.out.println("Introduce nombre equipo 1");
+		nombre = sc.nextLine();
+		for (int i = 0; i < equiposLiga.length; i++) {
+			if (equiposLiga[i].getNombre().equalsIgnoreCase(nombre)) {
+				partido1.add(equiposLiga[i].getNombre());
+				for (int j = 0; j < 4; j++) {
+					System.out.println("Introduce Dorsal Jugador " + j);
+					dorsal = sn.nextInt();
+					for (int x = 0; x < jugadoresLiga.length; x++) {
+						if (jugadoresLiga[x].getDorsal() == dorsal) {
+							partido1.add(jugadoresLiga[x].getNombre());
+						}
+					}
+				}
+			}
+		}
+		System.out.println("Introduce nombre equipo 2");
+		nombre = sc.nextLine();
+		for (int i = 0; i < equiposLiga.length; i++) {
+			if (equiposLiga[i].getNombre().equalsIgnoreCase(nombre)) {
+				partido1.add(equiposLiga[i].getNombre());
+				for (int j = 0; j < 4; j++) {
+					System.out.println("Introduce Dorsal Jugador " + j);
+					dorsal = sn.nextInt();
+					for (int x = 0; x < jugadoresLiga.length; x++) {
+						if (jugadoresLiga[x].getDorsal() == dorsal) {
+							partido1.add(jugadoresLiga[x].getNombre());
+						}
+					}
+				}
+			}
+		}
+		System.out.println("Introduce goles de" + partido1.get(0));
+		partido1.add(sn.nextLine());
+		System.out.println("Introduce goles de " + partido1.get(5));
+		partido1.add(sn.nextLine());
+		System.out.println("Introduce fecha partido 1");
+		partido1.add(sc.nextLine());
+
+		System.out.println("Introduce nombre equipo 1");
+		nombre = sc.nextLine();
+		for (int i = 0; i < equiposLiga.length; i++) {
+			if (equiposLiga[i].getNombre().equalsIgnoreCase(nombre)) {
+				partido1.add(equiposLiga[i].getNombre());
+				for (int j = 0; j < 4; j++) {
+					System.out.println("Introduce Dorsal Jugador " + j);
+					dorsal = sn.nextInt();
+					for (int x = 0; x < jugadoresLiga.length; x++) {
+						if (jugadoresLiga[x].getDorsal() == dorsal) {
+							partido2.add(jugadoresLiga[x].getNombre());
+						}
+					}
+				}
+			}
+		}
+		System.out.println("Introduce nombre equipo 2");
+		nombre = sc.nextLine();
+		for (int i = 0; i < equiposLiga.length; i++) {
+			if (equiposLiga[i].getNombre().equalsIgnoreCase(nombre)) {
+				partido2.add(equiposLiga[i].getNombre());
+				for (int j = 0; j < 4; j++) {
+					System.out.println("Introduce Dorsal Jugador " + j);
+					dorsal = sn.nextInt();
+					for (int x = 0; x < jugadoresLiga.length; x++) {
+						if (jugadoresLiga[x].getDorsal() == dorsal) {
+							partido2.add(jugadoresLiga[x].getNombre());
+						}
+					}
+				}
+			}
+		}
+		System.out.println("Introduce goles de" + partido2.get(0));
+		partido2.add(sn.nextLine());
+		System.out.println("Introduce goles de " + partido2.get(5));
+		partido2.add(sn.nextLine());
+		System.out.println("Introduce fecha partido 2");
+		partido2.add(sc.nextLine());
+
+		System.out.println("Introduce nombre equipo 1");
+		nombre = sc.nextLine();
+		for (int i = 0; i < equiposLiga.length; i++) {
+			if (equiposLiga[i].getNombre().equalsIgnoreCase(nombre)) {
+				partido1.add(equiposLiga[i].getNombre());
+				for (int j = 0; j < 4; j++) {
+					System.out.println("Introduce Dorsal Jugador " + j);
+					dorsal = sn.nextInt();
+					for (int x = 0; x < jugadoresLiga.length; x++) {
+						if (jugadoresLiga[x].getDorsal() == dorsal) {
+							partido3.add(jugadoresLiga[x].getNombre());
+						}
+					}
+				}
+			}
+		}
+		System.out.println("Introduce nombre equipo 2");
+		nombre = sc.nextLine();
+		for (int i = 0; i < equiposLiga.length; i++) {
+			if (equiposLiga[i].getNombre().equalsIgnoreCase(nombre)) {
+				partido3.add(equiposLiga[i].getNombre());
+				for (int j = 0; j < 4; j++) {
+					System.out.println("Introduce Dorsal Jugador " + j);
+					dorsal = sn.nextInt();
+					for (int x = 0; x < jugadoresLiga.length; x++) {
+						if (jugadoresLiga[x].getDorsal() == dorsal) {
+							partido3.add(jugadoresLiga[x].getNombre());
+						}
+					}
+				}
+			}
+		}
+		System.out.println("Introduce goles de" + partido3.get(0));
+		partido3.add(sn.nextLine());
+		System.out.println("Introduce goles de " + partido3.get(5));
+		partido3.add(sn.nextLine());
+		System.out.println("Introduce fecha partido 3");
+		partido3.add(sc.nextLine());
+
+		System.out.println("Introduce nombre equipo 1");
+		nombre = sc.nextLine();
+		for (int i = 0; i < equiposLiga.length; i++) {
+			if (equiposLiga[i].getNombre().equalsIgnoreCase(nombre)) {
+				partido1.add(equiposLiga[i].getNombre());
+				for (int j = 0; j < 4; j++) {
+					System.out.println("Introduce Dorsal Jugador " + j);
+					dorsal = sn.nextInt();
+					for (int x = 0; x < jugadoresLiga.length; x++) {
+						if (jugadoresLiga[x].getDorsal() == dorsal) {
+							partido1.add(jugadoresLiga[x].getNombre());
+						}
+					}
+				}
+			}
+		}
+		System.out.println("Introduce nombre equipo 2");
+		nombre = sc.nextLine();
+		for (int i = 0; i < equiposLiga.length; i++) {
+			if (equiposLiga[i].getNombre().equalsIgnoreCase(nombre)) {
+				partido4.add(equiposLiga[i].getNombre());
+				for (int j = 0; j < 4; j++) {
+					System.out.println("Introduce Dorsal Jugador " + j);
+					dorsal = sn.nextInt();
+					for (int x = 0; x < jugadoresLiga.length; x++) {
+						if (jugadoresLiga[x].getDorsal() == dorsal) {
+							partido4.add(jugadoresLiga[x].getNombre());
+						}
+					}
+				}
+			}
+		}
+		System.out.println("Introduce goles de" + partido4.get(0));
+		partido4.add(sn.nextLine());
+		System.out.println("Introduce goles de " + partido4.get(5));
+		partido4.add(sn.nextLine());
+		System.out.println("Introduce fecha partido 4");
+		partido4.add(sc.nextLine());
+
 	}
 }

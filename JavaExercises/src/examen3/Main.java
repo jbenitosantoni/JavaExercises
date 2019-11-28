@@ -3,7 +3,6 @@ package examen3;
 public class Main {
 
 	public static void main(String[] args) {
-
 	}
 
 	public static void rellenarJugadores(Jugador[] jugadores) {
@@ -35,7 +34,7 @@ public class Main {
 		arbitros[1] = new Arbitro("Miguel", "Betancor", "0234521K", "ESP", 4, 90);
 		arbitros[2] = new Arbitro("Kino", "Salvo", "08745553K", "ESP", 5, 45);
 		arbitros[3] = new Arbitro("Francesco", "Messina", "0890450K", "ESP", 8, 88);
-		arbitros[4] = new Arbitro("Eduardo", "Fernandez", "0111214K", "ESP", 9, 31);
+		arbitros[4] = new Arbitro("Eduardo", "Fernandez", "0111214K", "ESP", 9, 37);
 	}
 
 	public static void rellenarLigas(Liga[] ligas) {

@@ -10,7 +10,7 @@ public class Main {
 		Scanner sn = new Scanner(System.in);
 		// TODO Auto-generated method stub
 		// Creo el array de 20 jugadores
-		Jugador[] jugadoresLiga = new Jugador[16];
+		ArrayList<Jugador> jugadoresLiga = new ArrayList<Jugador>();
 		// Llamo al método que rellena los 16 jugadores con datos
 		rellenarJugadores(jugadoresLiga);
 		// Creo un array de 4 equipos
@@ -25,65 +25,66 @@ public class Main {
 		ArrayList<String> partido3 = new ArrayList();
 		ArrayList<String> partido4 = new ArrayList();
 		Main.RellenarPartidos(equiposLiga, jugadoresLiga, sc, sn, partido1, partido2, partido3, partido4);
+		int numero = 2;
 
 	}
 
-	public static boolean comprobarApodo(Jugador[] jugadores, String intro) {
-		Boolean existe = false;
+	public static Jugador pichichi(ArrayList<Jugador> jugadoresLiga) {
+		int mayor = 0;
+		return null;
+	}
+
+	public static Arbitro[] mostrarDosArbitrosMasInternacionalidades(ArrayList<Arbitro> intro, Arbitro[] arbitros) {
+		for (int i = 0; i < arbitros.length; i++) {
+
+		}
+		return null;
+	}
+
+	public static boolean comprobarApodo(Jugador[] jugadores, Jugador intro, String intro2) {
+		Boolean correcto = false;
 		for (int i = 0; i < jugadores.length; i++) {
-			if (jugadores[i].getApodo().equalsIgnoreCase(intro)) {
-				existe = true;
+			if (jugadores[i].getDorsal() == intro.getDorsal()) {
+				if (jugadores[i].getApodo().equalsIgnoreCase(intro2)) {
+					correcto = true;
+				}
 			}
 		}
-		if (!existe) {
+		if (!correcto) {
 			return false;
 		} else {
 			return true;
 		}
 	}
 
-	public static int sumaGolesInfinito(Jugador[] jugadores, Scanner sn) {
-		ArrayList<Integer> goles = new ArrayList<Integer>();
-		System.out.println("Introduce numero de jugadores a calcular");
-		int cantidad = sn.nextInt();
-		for (int i = 0; i < cantidad; i++) {
-			goles.add(sn.nextInt());
+	public static void sumaGolesInfinito(ArrayList<Integer> jugadoresintro, Jugador[] jugadorestodos, int numero,
+			Scanner sn) {
+		for (int i = 0; i < jugadoresintro.size(); i++) {
+			for (int j = 0; j < jugadorestodos.length; j++) {
+				if (jugadoresintro.get(i) == jugadorestodos[j].getDorsal()) {
+					jugadorestodos[j].setGoles(jugadorestodos[j].getGoles() + numero);
+				}
+			}
 		}
+	}
+
+	public static int sumadorGoles(Jugador intro1, Jugador intro2, Jugador[] jugadorestodos, Scanner sn) {
 		int suma = 0;
-		for (int i = 0; i < goles.size(); i++) {
-			suma = suma + goles.get(i);
+		for (int i = 0; i < jugadorestodos.length; i++) {
+			if (intro1.getDorsal() == jugadorestodos[i].getDorsal()) {
+				suma = suma + jugadorestodos[i].getGoles();
+			}
+			if (intro2.getDorsal() == jugadorestodos[i].getDorsal()) {
+				suma = suma + jugadorestodos[i].getGoles();
+			}
 		}
 		return suma;
 	}
 
-	public static int sumadorGoles(Jugador[] jugadores, Scanner sn) {
-		int dorsal = 0;
+	public static String mostrarJugador(Jugador[] jugadores, Jugador intro, Scanner sn) {
 		int posicion = 0;
-		int posicion2 = 0;
-		System.out.println("Introduce dorsal jugador 1");
-		dorsal = sn.nextInt();
 		for (int i = 0; i < jugadores.length; i++) {
-			if (jugadores[i].getDorsal() == dorsal) {
-				posicion = i;
-			}
-		}
-		System.out.println("Introduce dorsal jugador 2");
-		dorsal = sn.nextInt();
-		for (int i = 0; i < jugadores.length; i++) {
-			if (jugadores[i].getDorsal() == dorsal) {
-				posicion2 = i;
-			}
-		}
-		return jugadores[posicion].getGoles() + jugadores[posicion2].getGoles();
-	}
-
-	public static String mostrarJugador(Jugador[] jugadores, Scanner sn) {
-		int dorsal = 0;
-		int posicion = 0;
-		System.out.println("Introduce dorsal jugador");
-		dorsal = sn.nextInt();
-		for (int i = 0; i < jugadores.length; i++) {
-			if (jugadores[i].getDorsal() == dorsal) {
+			if (jugadores[i].getDorsal() == intro.getDorsal()) {
 				posicion = i;
 			}
 		}

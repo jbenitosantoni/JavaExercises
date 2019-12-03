@@ -86,10 +86,14 @@ public class Main {
 		return longitud;
 	}
 
-	public static ArrayList mostrarTitulosComa(ArrayList<Cancion> canciones) {
-		ArrayList titulos = new ArrayList();
+	public static String mostrarTitulosComa(ArrayList<Cancion> canciones) {
+		String titulos = "";
 		for (int i = 0; i < canciones.size(); i++) {
-			titulos.add(canciones.get(i).getTitulo() + ", ");
+			if (i != canciones.size() - 1) {
+				titulos = canciones.get(i).getTitulo() + ", ";
+			} else {
+				titulos = canciones.get(i).getTitulo() + ".";
+			}
 		}
 		return titulos;
 	}
@@ -105,7 +109,7 @@ public class Main {
 	public static ArrayList todasDuraciones(ArrayList<Cancion> canciones) {
 		ArrayList duracion = new ArrayList();
 		for (int i = 0; i < canciones.size(); i++) {
-			duracion.add(canciones.get(i).getDuracion() + ", ");
+			duracion.add(canciones.get(i).getDuracion());
 		}
 		return duracion;
 	}

@@ -6,10 +6,31 @@ import java.util.Scanner;
 public class Main2 {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 		ArrayList<Cancion> cancionesPrincipal = new ArrayList<Cancion>();
 		ArrayList<Disco> discos = new ArrayList<Disco>();
 		Main2.rellenarCanciones(cancionesPrincipal);
-		Main2.rellenarDiscos(cancionesPrincipal, discos);
+		Main2.mostrarMenu();
+		int intro = sc.nextInt();
+		do {
+			switch (intro) {
+			case 1:
+				Main2.rellenarDiscos(cancionesPrincipal, discos);
+				break;
+			case 2:
+				Main2.mostrarCancionesEnDisco(discos);
+				break;
+			case 3:
+				Main2.discoCancion(discos);
+				break;
+			case 4:
+				Main2.titulosLetra(discos);
+				break;
+			case 5:
+				Main2.discoMayorDuracion(discos);
+				break;
+			}
+		} while (intro != 6);
 	}
 
 	public static void rellenarCanciones(ArrayList<Cancion> canciones) {

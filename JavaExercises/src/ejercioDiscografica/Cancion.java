@@ -26,7 +26,7 @@ public class Cancion {
 		return duracion;
 	}
 
-	public void setDuracion(int duracion) {
+	public void setDuracion(double duracion) {
 		this.duracion = duracion;
 	}
 

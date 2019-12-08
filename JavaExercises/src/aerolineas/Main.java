@@ -11,9 +11,11 @@ public class Main {
 		ArrayList<Comandante> comandantes = new ArrayList<Comandante>();
 		ArrayList<Aeropuerto> aeropuertos = new ArrayList<Aeropuerto>();
 		ArrayList<Vuelo> vuelos = new ArrayList<Vuelo>();
-		Main.insertarAvion(aviones);
+		Main.insertarPasajero(pasajeros);
 		Main.insertarAeropuerto(aeropuertos, aviones);
-		Main.mostrarDatosTodosAeropuertos(aeropuertos);
+		Main.insertarAvion(aviones);
+		Main.insertarVuelo(vuelos, aviones, pasajeros, aeropuertos);
+		Main.mostrarDatosTodosVuelos(vuelos);
 	}
 
 	public static void menu() {

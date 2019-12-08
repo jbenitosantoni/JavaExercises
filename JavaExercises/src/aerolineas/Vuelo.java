@@ -30,8 +30,14 @@ public class Vuelo {
 
 	@Override
 	public String toString() {
-		return "Vuelo [cod_vuelo=" + cod_vuelo + ", avion=" + avion + ", pasajeros=" + pasajeros
-				+ ", aeropuerto_salida=" + aeropuerto_salida + ", aeropuerto_llegada=" + aeropuerto_llegada + "]";
+		String depasajeros = "";
+		for (int i = 0; i < pasajeros.size(); i++) {
+			depasajeros = depasajeros + " " + pasajeros.get(i).getNombre() + " " + pasajeros.get(i).getApellidos()
+					+ ",";
+		}
+		return "***************\n" + "Vuelo: " + cod_vuelo + "\nAeropuerto Salida: " + aeropuerto_salida.getNombre()
+				+ "\nAeropuerto Llegada: " + aeropuerto_llegada.getNombre() + "\nListado Pasajeros:" + depasajeros
+				+ "\n***************";
 	}
 
 	public int getCod_vuelo() {

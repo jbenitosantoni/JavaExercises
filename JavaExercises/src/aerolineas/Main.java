@@ -6,16 +6,53 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 		ArrayList<Pasajero> pasajeros = new ArrayList<Pasajero>();
 		ArrayList<Avion> aviones = new ArrayList<Avion>();
 		ArrayList<Comandante> comandantes = new ArrayList<Comandante>();
 		ArrayList<Aeropuerto> aeropuertos = new ArrayList<Aeropuerto>();
 		ArrayList<Vuelo> vuelos = new ArrayList<Vuelo>();
-		Main.insertarPasajero(pasajeros);
-		Main.insertarAeropuerto(aeropuertos, aviones);
-		Main.insertarAvion(aviones);
-		Main.insertarVuelo(vuelos, aviones, pasajeros, aeropuertos);
-		Main.mostrarDatosTodosVuelos(vuelos);
+		int intro = 0;
+		do {
+			Main.menu();
+			intro = sc.nextInt();
+			switch (intro) {
+			case 1:
+				Main.insertarAvion(aviones);
+				break;
+			case 2:
+				Main.insertarComandante(comandantes);
+				break;
+			case 3:
+				Main.insertarAeropuerto(aeropuertos, aviones);
+				break;
+			case 4:
+				Main.insertarPasajero(pasajeros);
+				break;
+			case 5:
+				Main.insertarVuelo(vuelos, aviones, pasajeros, aeropuertos);
+				break;
+			case 6:
+				Main.mostrarDatosTodosAviones(aviones);
+				break;
+			case 7:
+				Main.mostrarDatosTodosComandantes(comandantes);
+				break;
+			case 8:
+				Main.mostrarDatosTodosAeropuertos(aeropuertos);
+				break;
+			case 9:
+				Main.mostrarDatosTodosPasajeros(pasajeros);
+				break;
+			case 10:
+				Main.mostrarDatosTodosVuelos(vuelos);
+				break;
+			case 11:
+				System.out.println("Adios!");
+				break;
+
+			}
+		} while (intro != 11);
 	}
 
 	public static void menu() {

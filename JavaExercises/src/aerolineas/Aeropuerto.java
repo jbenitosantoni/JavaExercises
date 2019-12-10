@@ -16,6 +16,13 @@ public class Aeropuerto {
 		this.aviones = aviones;
 	}
 
+	public Aeropuerto(String nombre, String ciudad, int codigo_aeropuerto) {
+		super();
+		this.nombre = nombre;
+		this.ciudad = ciudad;
+		this.codigo_aeropuerto = codigo_aeropuerto;
+	}
+
 	public ArrayList<Avion> getAviones() {
 		return aviones;
 	}

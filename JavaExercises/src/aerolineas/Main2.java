@@ -1,6 +1,7 @@
 package aerolineas;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -24,6 +25,67 @@ public class Main2 {
 		for (int i = 0; i < aviones.size(); i++) {
 			System.out.println(aviones.get(i).getMatricula());
 		}
+	}
+
+	public static ArrayList<Pasajero> quitarApellidoyDNIPasajeros(ArrayList<Pasajero> pasajeros, char letra,
+			String apellido) {
+		for (int i = 0; i < pasajeros.size(); i++) {
+			if (pasajeros.get(i).getDni().charAt(pasajeros.get(i).getDni().length() - 1) == letra) {
+				pasajeros.remove(i);
+			}
+			if (pasajeros.get(i).getApellidos().toLowerCase().contains(apellido.toLowerCase())) {
+				pasajeros.remove(i);
+			}
+		}
+		return pasajeros;
+	}
+
+	public static ArrayList<Avion> avionesSinDuplicados(ArrayList<Avion> aviones) {
+		for (int i = 0; i < aviones.size(); i++) {
+			for (int j = 0; j < aviones.size(); j++) {
+				if (aviones.get(i).getMatricula().equalsIgnoreCase(aviones.get(j).getMatricula())) {
+					aviones.remove(i);
+				}
+			}
+		}
+		return aviones;
+	}
+
+	public static Aeropuerto añadirAvionesAeropuerto(Avion[] avion1, Avion[] avion2, Avion[] avion3,
+			Aeropuerto aeropuerto) {
+		ArrayList<Avion> avionesinsertar = new ArrayList<Avion>();
+		ArrayList<Avion> avion1List = new ArrayList<Avion>(Arrays.asList(avion1));
+		ArrayList<Avion> avion2List = new ArrayList<Avion>(Arrays.asList(avion2));
+		ArrayList<Avion> avion3List = new ArrayList<Avion>(Arrays.asList(avion3));
+		ArrayList<Avion> sumaviones = new ArrayList<Avion>();
+		sumaviones.addAll(avion1List);
+		sumaviones.addAll(avion2List);
+		sumaviones.addAll(avion3List);
+		aeropuerto.setAviones(sumaviones);
+		return aeropuerto;
+	}
+
+	public static ArrayList<Avion> añadirAvionesComprobando(ArrayList<Avion> aviones, Avion[] avionesañadir) {
+		Boolean repetido = false;
+		for (int i = 0; i < avionesañadir.length; i++) {
+			for (int j = 0; j < aviones.size(); j++) {
+				if (avionesañadir[j].getMatricula().equalsIgnoreCase(aviones.get(j).getMatricula())) {
+					repetido = true;
+				}
+			}
+			if (!repetido) {
+				aviones.add(avionesañadir[i]);
+			}
+			repetido = false;
+		}
+		return aviones;
+	}
+
+	public static ArrayList<Avion> añadirAviones(ArrayList<Avion> aviones, Avion[] avionesañadir) {
+		for (int i = 0; i < avionesañadir.length; i++) {
+			aviones.add(avionesañadir[i]);
+		}
+		return aviones;
 	}
 
 	public static ArrayList<Pasajero> ordenarPasajeros(ArrayList<Pasajero> pasajeros, int orden) {

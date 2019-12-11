@@ -21,10 +21,60 @@ public class Main2 {
 		rellenarAviones(aviones);
 		rellenarPasajeros(pasajeros);
 		rellenarAeropuertos(aeropuertos);
-		Main2.ordenarAvionesMatricula(aviones);
-		for (int i = 0; i < aviones.size(); i++) {
-			System.out.println(aviones.get(i).getMatricula());
+
+	}
+
+	public static ArrayList<Pasajero> pasajerosMayoresDeEdadEnVuelos(ArrayList<Vuelo> vuelos) {
+		ArrayList<Pasajero> pasajerosdevuelve = new ArrayList<Pasajero>();
+		for (int i = 0; i < vuelos.size(); i++) {
+			for (int j = 0; j < vuelos.get(i).getPasajeros().size(); j++) {
+				if (vuelos.get(i).getPasajeros().get(j).getEdad() >= 18) {
+					pasajerosdevuelve.add(vuelos.get(i).getPasajeros().get(j));
+				}
+			}
 		}
+		return pasajerosdevuelve;
+	}
+
+	public static ArrayList<Aeropuerto> aeropuertoQueContengaMatricula(ArrayList<Aeropuerto> aeropuertos,
+			String matricula1, String matricula2) {
+		ArrayList<Aeropuerto> aeropuertosdevuelve = new ArrayList<Aeropuerto>();
+		for (int i = 0; i < aeropuertos.size(); i++) {
+			for (int j = 0; j < aeropuertos.get(i).getAviones().size(); j++) {
+				if (aeropuertos.get(i).getAviones().get(j).getMatricula().equalsIgnoreCase(matricula1)
+						|| aeropuertos.get(i).getAviones().get(j).getMatricula().equalsIgnoreCase(matricula2)) {
+					aeropuertosdevuelve.add(aeropuertos.get(i));
+				}
+			}
+		}
+		System.out.println(aeropuertosdevuelve.size());
+		return aeropuertosdevuelve;
+	}
+
+	public static ArrayList<Comandante> devolverComandantesRango(ArrayList<Comandante> comandantes,
+			ArrayList<Integer> rangos) {
+		ArrayList<Comandante> comandantesfinal = new ArrayList<Comandante>();
+		for (int i = 0; i < comandantes.size(); i++) {
+			for (int j = 0; j < rangos.size(); j++) {
+				if (comandantes.get(i).getRango() == rangos.get(j)) {
+					comandantesfinal.add(comandantes.get(i));
+				}
+			}
+		}
+		return comandantesfinal;
+	}
+
+	public static ArrayList<Vuelo> quitarPasaejerosTelefono(ArrayList<Vuelo> vuelos, int[] telefonos) {
+		for (int i = 0; i < vuelos.size(); i++) {
+			for (int j = 0; j < telefonos.length; j++) {
+				for (int z = 0; z < vuelos.get(i).getPasajeros().size(); z++) {
+					if (vuelos.get(i).getPasajeros().get(z).getTelefono() == telefonos[j]) {
+						vuelos.remove(i);
+					}
+				}
+			}
+		}
+		return vuelos;
 	}
 
 	public static ArrayList<Pasajero> quitarApellidoyDNIPasajeros(ArrayList<Pasajero> pasajeros, char letra,
@@ -98,6 +148,7 @@ public class Main2 {
 		}
 		if (orden == 2) {
 			Collections.sort(pasajeros, new Comparator<Pasajero>() {
+
 				public int compare(Pasajero pasajero1, Pasajero pasajero2) {
 					return pasajero1.getApellidos().compareTo(pasajero2.getApellidos());
 				}
@@ -110,7 +161,9 @@ public class Main2 {
 				}
 			});
 		}
-		if (orden == 4) {
+		if (orden == 4)
+
+		{
 			Collections.sort(pasajeros, new Comparator<Pasajero>() {
 				public int compare(Pasajero pasajero1, Pasajero pasajero2) {
 					return pasajero1.getDni().compareTo(pasajero2.getDni());

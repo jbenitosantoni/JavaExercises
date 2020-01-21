@@ -1,0 +1,3 @@
+domestico|23|190|65|11|laika|perro||true|guau|antonio
+domestico|23|190|65|15|laika|perro||true|guau|antonio
+salvaje|11|215|130|9|leoncio|leon|100||||
